@@ -1,0 +1,100 @@
+     
+   /* Styling the body */
+  
+
+/* Header Styling */
+.animated-header {
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Styling the letters individually */
+.animated-header span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100px); /* Start below the text */
+    animation: animateText 2s forwards;
+    animation-delay: 0.1s; /* Stagger the animations */
+    position: relative;
+}
+
+/* Animation for each letter */
+@keyframes animateText {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Make each letter come from a different direction */
+.animated-header span:nth-child(odd) {
+    animation-name: slideFromLeft;
+}
+
+.animated-header span:nth-child(even) {
+    animation-name: slideFromRight;
+}
+
+/* Animation from left */
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50vw); /* Start from the left */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at the final position */
+    }
+}
+
+/* Animation from right */
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50vw); /* Start from the right */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at the final position */
+    }
+}
+
+/* Highlight specific letters (Anand Swaroop) */
+.animated-header span:nth-child(n+7) {
+    color: #ff007f; /* Pink color for Anand Swaroop */
+}
+
+/* Glow Effect for the Header */
+.animated-header {
+    text-shadow: 0 0 15px rgba(255, 0, 127, 0.7), 0 0 30px rgba(255, 0, 127, 0.7), 0 0 60px rgba(255, 0, 127, 0.7);
+}
+
+/* Hover effect */
+.animated-header:hover span {
+    animation: hoverEffect 0.4s forwards;
+    transform: scale(1.1);
+}
+
+@keyframes hoverEffect {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
